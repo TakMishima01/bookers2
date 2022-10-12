@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete">
   <head>
     <title>Bookers2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,18 +13,47 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
-      <% end %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/"><span>Bookers</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <span>
+                  <i class="fa-solid fa-house-chimney"></i>
+                  <%= link_to "Home", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+                </span>
+              </li>
+              <li>
+                <%= link_to "User", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+              </li>
+              <li>
+                <%= link_to "Books", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+              </li>
+              <li>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "Home" %>
+              </li>
+              <li>
+                <%= link_to "About" %>
+              </li>
+              <li>
+                <%= link_to "Sign up", new_user_registration_path %>
+              </li>
+              <li>
+                <%= link_to "Log in", new_user_session_path %>
+              </li>
+            <% end %>
+        </ul>
+        </div>
+      </nav>
     </header>
     <%= yield %>
   </body>
