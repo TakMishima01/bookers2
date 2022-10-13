@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="fontawesome-i2svg-active fontawesome-i2svg-complete">
+<html>
   <head>
     <title>Bookers2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,33 +22,54 @@
             </button>
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-              <li class="nav-item">
-                <span>
-                  <i class="fa-solid fa-house-chimney"></i>
-                  <%= link_to "Home", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
-                </span>
+              <li>
+                <%= link_to destroy_user_session_path, class: "nav-link text-white", method: :delete do %>
+                  <i class="fas fa-home"></i>
+                  Home
+                <% end %>
               </li>
               <li>
-                <%= link_to "User", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+                <%= link_to destroy_user_session_path, class: "nav-link text-white", method: :delete do%>
+                  <i class="fas fa-users"></i>
+                  Users
+                <% end %>
               </li>
               <li>
-                <%= link_to "Books", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+                <%= link_to destroy_user_session_path, class: "nav-link text-white", method: :delete do%>
+                  <i class="fas fa-book-open"></i>
+                  Books
+                <% end %>
               </li>
               <li>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+                <%= link_to destroy_user_session_path, class: "nav-link text-white", method: :delete do%>
+                  <i class="fas fa-sign-out-alt"></i>
+                  Log out
+                <% end %>
               </li>
             <% else %>
               <li>
-                <%= link_to "Home" %>
+                <%= link_to destroy_user_session_path, class: "nav-link text-white", method: :delete do %>
+                  <i class="fas fa-home"></i>
+                  Home
+                <% end %>
               </li>
               <li>
-                <%= link_to "About" %>
+                <%= link_to destroy_user_session_path, class: "nav-link text-white", method: :delete do %>
+                  <i class="fas fa-link"></i>
+                  About
+                <% end %>
               </li>
               <li>
-                <%= link_to "Sign up", new_user_registration_path %>
+                <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
+                  <i class="fas fa-user-plus"></i>
+                  Sign up
+                <% end %>
               </li>
               <li>
-                <%= link_to "Log in", new_user_session_path %>
+                <%= link_to new_user_session_path, class: "nav-link text-white" do %>
+                  <i class="fas fa-sign-in-alt"></i>
+                  Log in
+                <% end %>
               </li>
             <% end %>
         </ul>
@@ -56,5 +77,14 @@
       </nav>
     </header>
     <%= yield %>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
